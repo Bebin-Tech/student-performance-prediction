@@ -54,5 +54,4 @@ python test_project.py
 ## Model Evaluation
 The system uses **Linear Regression**, providing high interpretability and performance for academic factor analysis. Evaluation metrics are printed during the training phase.
 
-## Author
-Senior ML Engineer
+
