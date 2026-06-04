@@ -1,48 +1,58 @@
 # Student Performance Prediction System
 
-A complete end-to-end Machine Learning project to predict a student's final exam marks based on study habits and academic factors.
+A complete end-to-end Machine Learning project to predict a student's final exam marks based on study habits and academic factors. This project includes data generation, model training, evaluation, and an interactive web interface.
 
 ## Project Objective
-Predict final exam marks using features like Study Hours, Attendance, Previous Marks, and Sleep Hours.
-
-## Features
-- **Data Collection**: Synthetic dataset generation with 200 records (`students.csv`).
-- **Data Preprocessing**: Handling nulls and statistical analysis.
-- **EDA**: Visualizations including correlation heatmaps and histograms.
-- **Model**: Linear Regression algorithm.
-- **UI**: Interactive Streamlit web application.
+Predict final exam marks using features like:
+- **Study_Hours**: Total hours spent studying.
+- **Attendance**: Percentage of classes attended.
+- **Previous_Marks**: Marks obtained in previous exams.
+- **Sleep_Hours**: Average daily sleep duration.
 
 ## Project Structure
-- `students.csv`: The dataset.
-- `train_model.py`: Script to preprocess data, perform EDA, train the model, and save it.
-- `app.py`: Streamlit application for predictions.
-- `model.pkl`: Saved trained model.
-- `requirements.txt`: Project dependencies.
+- `students.csv`: The generated dataset.
+- `train_model.py`: Script to generate data, perform EDA, train the Linear Regression model, and save it.
+- `app.py`: Streamlit application for real-time predictions and visualizations.
+- `test_project.py`: Script to verify the model and file structure.
+- `requirements.txt`: List of Python dependencies.
+- `*.png`: EDA visualizations generated during training.
 
-## Installation & Usage
+## Local Setup & Execution
 
-1. **Install Dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
+### 1. Prerequisites
+Ensure you have Python installed (3.8+ recommended).
 
-2. **Train the Model**:
-   ```bash
-   python train_model.py
-   ```
-   This will generate `students.csv`, perform EDA (saving plots), and create `model.pkl`.
+### 2. Install Dependencies
+Open your terminal in the project folder and run:
+```bash
+pip install -r requirements.txt
+```
 
-3. **Run the Web App**:
-   ```bash
-   streamlit run app.py
-   ```
+### 3. Train the Model
+Run the training script to generate the dataset and train the ML model:
+```bash
+python train_model.py
+```
+This will:
+- Create `students.csv`.
+- Save EDA plots: `histograms.png`, `heatmap.png`, `scatter_study.png`.
+- Output model evaluation metrics (MAE, MSE, RMSE, R²).
+- Save the trained model as `model.pkl`.
 
-## Model Evaluation Metrics
-The model is evaluated using:
-- **MAE**: Mean Absolute Error
-- **MSE**: Mean Squared Error
-- **RMSE**: Root Mean Squared Error
-- **R² Score**: Coefficient of Determination
+### 4. Run the Web Application
+Launch the interactive Streamlit UI:
+```bash
+streamlit run app.py
+```
+
+### 5. Run Tests
+Verify the project functionality:
+```bash
+python test_project.py
+```
+
+## Model Evaluation
+The system uses **Linear Regression**, providing high interpretability and performance for academic factor analysis. Evaluation metrics are printed during the training phase.
 
 ## Author
 Senior ML Engineer
