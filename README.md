@@ -1,4 +1,4 @@
-# Student Performance Prediction System
+# Student Performance Prediction System.
 
 A complete end-to-end Machine Learning project to predict a student's final exam marks based on study habits and academic factors. This project includes data generation, model training, evaluation, and an interactive web interface.
 
