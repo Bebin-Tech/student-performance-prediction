@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Student Performance Prediction · Bebin R</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#0b1020;color:#edf0ff;font:1rem/1.55 system-ui,sans-serif}main{max-width:42rem;margin:auto;padding:clamp(1.5rem,6vw,4rem) 1.5rem}h1{line-height:1.15;font-size:clamp(2rem,6vw,3rem)}p{color:#bcc6db}label{display:block;margin:1.2rem 0}input{display:block;width:100%;accent-color:#a5b4fc}strong{float:right}section{padding:1.5rem;background:#151d31;border-radius:1rem}output{font-size:2rem;font-weight:700}a{color:#b7c3ff}
+</style>
+<main><h1>Student performance prediction</h1><p>Adjust the four inputs to estimate a final mark using the project’s fitted linear regression. The model was trained on synthetic student data.</p>
+<form>
+<label>Study hours <strong></strong><input type="range" min="0" max="10" step=".01" value="5"></label>
+<label>Attendance (%) <strong></strong><input type="range" min="0" max="100" step=".01" value="75"></label>
+<label>Previous marks <strong></strong><input type="range" min="0" max="100" step=".01" value="65"></label>
+<label>Sleep hours <strong></strong><input type="range" min="0" max="12" step=".01" value="7"></label>
+<section>Estimated final marks<br><output aria-live="polite"></output></section></form>
+<p><a href="https://github.com/Bebin-Tech/student-performance-prediction">View model and training code on GitHub</a></p></main>
+<script>
+const coefficients = [4.060119429730174, 0.17496569511171645, 0.29870527805126174, 0.8512328363004825];
+const intercept = 2.6673690053291494;
+const inputs = Array.from(document.querySelectorAll('input'));
+function predict() {
+  let marks = intercept;
+  inputs.forEach((input, index) => {
+    input.previousElementSibling.textContent = input.value;
+    marks += input.valueAsNumber * coefficients[index];
+  });
+  document.querySelector('output').value = marks.toFixed(2);
+}
+document.querySelector('form').addEventListener('input', predict);
+predict();
+</script></html>
